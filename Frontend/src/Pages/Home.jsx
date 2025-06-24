@@ -77,7 +77,7 @@ function Home() {
       setSuggestedUser(result.data);
     } catch (error) {
       console.log("handleSuggestedUser error");
-      if (error.response) {
+      if (error.response && error.response.data) {
         console.log("Backend error:", error.response.data);
       } else {
         console.log(error);

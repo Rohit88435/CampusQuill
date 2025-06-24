@@ -23,15 +23,14 @@ function SignIn() {
     try {
       let result = await axios.post(
         serverUrl + "/api/auth/login",
-        {
-          email,
-          password,
-        },
+        { email, password },
         { withCredentials: true }
       );
-      console.log(result);
-      setUserData(result.data);
-      Navigate("/");
+      // If backend returns { user, message }
+      setUserData(result.data.user);
+      // If backend returns just user object
+      // setUserData(result.data);
+      navigate("/");
       setEmail("");
       setPassword("");
       setLoading(false);
