@@ -10,7 +10,7 @@ function UserContext({ children }) {
   let [postData, setPostData] = useState([]); // FIXED: initialize as array
   let { serverUrl } = useContext(authDataContext);
   let [edit, setEdit] = useState(false);
-  let [getProfile, setGetProfile] = useState([]);
+  let [getProfile, setGetProfile] = useState(null); // FIXED: initialize as null
   let navigate = useNavigate();
   const getCurrentuser = async () => {
     try {
@@ -69,7 +69,6 @@ function UserContext({ children }) {
     edit,
     setEdit,
     getCurrentuser,
-    getPost,
     getProfile,
     setGetProfile,
     handleGetProfile,
