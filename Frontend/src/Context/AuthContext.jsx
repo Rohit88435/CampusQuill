@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 
 export const authDataContext = createContext();
 function AuthContext({ children }) {
-  let serverUrl = "http://localhost:9000";
+  let serverUrl = "https://campusquill-backend.onrender.com";
   let value = {
     serverUrl,
   };
