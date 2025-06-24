@@ -33,7 +33,7 @@ function UserContext({ children }) {
       setPostData(result.data);
     } catch (error) {
       setPostData([]);
-      console.log(" get post error " + error);
+      console.log(" get post error ");
     }
   };
 

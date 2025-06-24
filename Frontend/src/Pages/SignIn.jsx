@@ -38,7 +38,6 @@ function SignIn() {
       toast.success("sign In Successfully");
     } catch (error) {
       console.log("frontend error");
-      setErr(error.response.data.message);
       setLoading(false);
       console.log(error);
     }

@@ -18,7 +18,7 @@ function App() {
       />
       <Route
         path="/signup"
-        element={userData ? <Navigate to="/signin" /> : <Singup />}
+        element={userData ? <Navigate to="/" /> : <Singup />}
       />
       <Route
         path="/signin"

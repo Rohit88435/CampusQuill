@@ -74,11 +74,14 @@ function Home() {
       let result = await axios.get(serverUrl + "/api/user/suggest", {
         withCredentials: true,
       });
-
       setSuggestedUser(result.data);
     } catch (error) {
-      console.log("handleSuggestedUser error ");
-      console.log(error);
+      console.log("handleSuggestedUser error");
+      if (error.response) {
+        console.log("Backend error:", error.response.data);
+      } else {
+        console.log(error);
+      }
       setSuggestedUser([]);
     }
   };

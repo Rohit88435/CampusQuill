@@ -59,7 +59,7 @@ export const sendConnection = async (req, res) => {
 export const acceptConnection = async (req, res) => {
   try {
     let { connectionId } = req.params;
-
+    let userId = req.userId;
     if (!connectionId || connectionId === "undefined") {
       return res
         .status(400)
