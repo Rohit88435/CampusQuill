@@ -31,7 +31,6 @@ function UserContext({ children }) {
         withCredentials: true,
       });
       setPostData(result.data);
-      console.log(result);
     } catch (error) {
       setPostData([]);
       console.log(" get post error " + error);

@@ -46,6 +46,8 @@ function Network() {
         { withCredentials: true }
       );
       setConnections(connections.filter((con) => con._id == requestId));
+      getCurrentuser();
+      navigate("/");
       console.log(result);
     } catch (error) {
       console.log(error);
