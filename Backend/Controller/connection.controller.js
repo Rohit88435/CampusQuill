@@ -60,7 +60,8 @@ export const acceptConnection = async (req, res) => {
   try {
     let { connectionId } = req.params;
     let userId = req.userId;
-    if (!connectionId || connectionId === "undefined") {
+
+    if (!connectionId) {
       return res
         .status(400)
         .json({ message: "connectionId is required and must be valid" });

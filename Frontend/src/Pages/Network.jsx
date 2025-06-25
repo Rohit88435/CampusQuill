@@ -9,19 +9,11 @@ import { useNavigate } from "react-router-dom";
 import { userDataContext } from "../Context/UserContext";
 
 function Network() {
-  let {
-    userData,
-    setUserData,
-    getCurrentuser,
-    getPost,
-    edit,
-    setEdit,
-    postData,
-    setPostData,
-  } = useContext(userDataContext);
+  let { userData, setUserData, getCurrentuser } = useContext(userDataContext);
   let { serverUrl } = useContext(authDataContext);
   let [connections, setConnections] = useState([]);
   let navigate = useNavigate();
+
   const handleGetRequest = async () => {
     try {
       let result = await axios.get(
@@ -51,7 +43,6 @@ function Network() {
       console.log(result);
     } catch (error) {
       console.log(error);
-
       console.log("handle accept error");
     }
   };
@@ -64,8 +55,10 @@ function Network() {
         { withCredentials: true }
       );
       setConnections(connections.filter((con) => con._id === requestId));
+      navigate("/");
       console.log(result);
     } catch (error) {
+      console.log(error);
       console.log("handle reject error");
     }
   };

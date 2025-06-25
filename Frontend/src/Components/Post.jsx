@@ -9,7 +9,7 @@ import { BiSolidLike } from "react-icons/bi";
 import { MdSend } from "react-icons/md";
 import { io } from "socket.io-client";
 
-let socket = io("http://localhost:900");
+let socket = io("http://localhost:9000");
 import { userDataContext } from "../Context/UserContext";
 import ConnectionButton from "./ConnectionButton";
 

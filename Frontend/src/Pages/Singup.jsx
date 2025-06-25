@@ -17,7 +17,7 @@ function Singup() {
   let [password, setPassword] = useState("");
   let [loading, setLoading] = useState(false);
   let [err, setErr] = useState("");
-
+  let navigate = useNavigate();
   const handleSignup = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -50,7 +50,6 @@ function Singup() {
     }
   };
 
-  let navigate = useNavigate();
   return (
     <div className="w-[100%] h-screen bg-white flex flex-col justify-start items-center gap-[10px]">
       <div className="p-[30px] lg:p-[35px] w-full flex items-center">

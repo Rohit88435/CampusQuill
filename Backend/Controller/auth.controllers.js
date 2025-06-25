@@ -44,7 +44,6 @@ export const signup = async (req, res) => {
     // generate toked through _id
     let token = getToken(user._id);
 
-    console.log(token);
     // generate cookie
     res.cookie("token", token, {
       httpOnly: true,
@@ -54,7 +53,7 @@ export const signup = async (req, res) => {
     });
 
     //return status succefull
-    return res.status(201).json({ user, message: "signup Successfully" }); // or
+    return res.status(201).json(user);
   } catch (error) {
     return res.status(500).json({ message: "signup error" });
   }
@@ -76,22 +75,17 @@ export const login = async (req, res) => {
       return res.status(400).json({ message: "Password incorrect" });
     }
 
-    let token = await getToken(existUser._id);
+    let token;
+
+    token = await getToken(existUser._id);
 
     res.cookie("token", token, {
       httpOnly: true,
-      maxAge: 7 * 24 * 60 * 60 * 1000,
       sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
       secure: process.env.NODE_ENV === "production",
     });
 
-    // Remove password before sending user object
-    const userWithoutPassword = { ...existUser._doc };
-    delete userWithoutPassword.password;
-
-    return res
-      .status(201)
-      .json({ user: userWithoutPassword, message: "login Successfully" });
+    return res.status(201).json({ message: " login Successfully" });
   } catch (error) {
     return res.status(500).json({ message: "Login error" });
   }

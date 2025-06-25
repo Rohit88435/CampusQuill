@@ -245,7 +245,7 @@ function Home() {
           />
         ))}
       </div>
-      <div className="lg:w-[25%] md:w-[25%] lg:min-h-[250px] rounded-lg pt-[10px] bg-white shadow-xl mr-[10px] hiddien flex-col lg:flex md:flex justify-start items-center">
+      <div className="lg:w-[25%] md:w-[25%] lg:min-h-[250px] rounded-lg pt-[10px] bg-white shadow-xl mr-[10px] hidden flex-col lg:flex md:flex justify-start items-center">
         <h1 className="text-[20px] text-gray-600 font-semibold">
           Suggested Users
         </h1>
