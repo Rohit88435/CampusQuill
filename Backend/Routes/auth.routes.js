@@ -6,7 +6,7 @@ import isAuth from "../MiddleWares/isAuth.js";
 export let authRouter = express.Router();
 
 // signup post
-authRouter.post("/signup", isAuth, signup);
+authRouter.post("/signup", signup);
 
 authRouter.post("/login", isAuth, login);
 
