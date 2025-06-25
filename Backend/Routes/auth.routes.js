@@ -8,6 +8,6 @@ export let authRouter = express.Router();
 // signup post
 authRouter.post("/signup", signup);
 
-authRouter.post("/login", isAuth, login);
+authRouter.post("/login", login);
 
 authRouter.get("/logout", isAuth, logout);
