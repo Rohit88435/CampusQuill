@@ -44,6 +44,7 @@ export const signup = async (req, res) => {
     // generate toked through _id
     let token = getToken(user._id);
 
+    console.log(token);
     // generate cookie
     res.cookie("token", token, {
       httpOnly: true,
