@@ -6,7 +6,7 @@ import io from "socket.io-client";
 import { userDataContext } from "../Context/UserContext";
 import { Navigate, useNavigate } from "react-router-dom";
 
-let socket = io("https://campusquill-backend.onrender.com");
+let socket = io("http://localhost:900");
 
 function ConnectionButton({ userId }) {
   let { userData, setUserData } = useContext(userDataContext);
