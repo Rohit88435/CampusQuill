@@ -75,18 +75,22 @@ export const login = async (req, res) => {
       return res.status(400).json({ message: "Password incorrect" });
     }
 
-    let token;
-
-    token = await getToken(existUser._id);
+    let token = await getToken(existUser._id);
 
     res.cookie("token", token, {
       httpOnly: true,
       maxAge: 7 * 24 * 60 * 60 * 1000,
-      sameSite: "None",
-      secure: process.env.NODE_ENVIRONMENT == "production",
+      sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+      secure: process.env.NODE_ENV === "production",
     });
 
-    return res.status(201).json({ message: " login Successfully" });
+    // Remove password before sending user object
+    const userWithoutPassword = { ...existUser._doc };
+    delete userWithoutPassword.password;
+
+    return res
+      .status(201)
+      .json({ user: userWithoutPassword, message: "login Successfully" });
   } catch (error) {
     return res.status(500).json({ message: "Login error" });
   }
