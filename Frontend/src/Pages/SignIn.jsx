@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import logo from "../assets/logo.png";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { authDataContext } from "../Context/AuthContext";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -26,9 +26,9 @@ function SignIn() {
         { email, password },
         { withCredentials: true }
       );
-      // If backend returns { user, message }
+
       setUserData(result.data.user);
-      // If backend returns just user object
+
       // setUserData(result.data);
       navigate("/");
       setEmail("");

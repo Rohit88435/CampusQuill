@@ -20,7 +20,11 @@ function UserContext({ children }) {
       setUserData(result.data);
     } catch (error) {
       setUserData(null);
-      console.log(error);
+      if (error.response) {
+        console.log("getCurrentuser error:", error.response.data);
+      } else {
+        console.log("getCurrentuser error:", error);
+      }
       console.log("user context error");
     }
   };
@@ -33,7 +37,11 @@ function UserContext({ children }) {
       setPostData(result.data);
     } catch (error) {
       setPostData([]);
-      console.log(" get post error ");
+      if (error.response) {
+        console.log("getPost error:", error.response.data);
+      } else {
+        console.log("getPost error:", error);
+      }
     }
   };
 
