@@ -54,7 +54,7 @@ export const signup = async (req, res) => {
     });
 
     //return status succefull
-    return res.status(201).json(user); // or { user, message: "login Successfully" }
+    return res.status(201).json({ user, message: "signup Successfully" }); // or
   } catch (error) {
     return res.status(500).json({ message: "signup error" });
   }

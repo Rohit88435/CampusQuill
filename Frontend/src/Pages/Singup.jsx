@@ -33,10 +33,10 @@ function Singup() {
         },
         { withCredentials: true }
       );
-      console.log(result);
+      console.log(result.data);
       setUserData(result.data);
       toast.success("SignUp Successfully");
-      navigate("/signin"); // <-- use navigate, not Navigate
+      navigate("/signin");
       setLoading(false);
       setFirstname("");
       setLastname("");
@@ -44,7 +44,6 @@ function Singup() {
       setEmail("");
       setPassword("");
     } catch (error) {
-      console.log("frontend error");
       setErr(error?.response?.data?.message || "Signup failed");
       setLoading(false);
       console.log(error);
